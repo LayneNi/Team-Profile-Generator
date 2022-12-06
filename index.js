@@ -2,40 +2,97 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML')
 const path = require("path");
-inquirer
+const Manager = require('./lib/manager');
+const myTeamArray = [];
+
+// const engineerQuestions;
+
+// const internQuestions;
+
+const managerQuestions = () => {
+  inquirer
   .prompt([
     {
       type: 'input',
-      message: 'What is your name?',
-      name: 'fullName',
+      message: "What is the manager's name?",
+      name: 'name',
     },
     {
-        type: 'input',
-        message: 'Where are you from?',
-        name: 'location',
-      },
-      {
-        type: 'input',
-        message: 'Please provide a short bio for yourself.',
-        name: 'bio',
-      },
-      {
-        type: 'input',
-        message: 'Please share a link to your LinkedIn profile.',
-        name: 'linkedIn',
-      },
-      {
-        type: 'input',
-        message: 'Please share a link to your Github profile.',
-        name: 'github',
-      },
-      
-])
-    .then((response) => {
-        console.log(response);
-        writeToFile("index.html", generateHTML({ ...response }));
-    });
+      type: 'input',
+      message: "What is their employee ID?",
+      name: 'id',
+    },
+    {
+      type: 'input',
+      message: "What is their email address?",
+      name: 'email',
+    },
+    {
+      type: 'input',
+      message: "What is their office number?",
+      name: 'office',
+    },
+    {
+      type: 'list',
+      message: "What type of employee would you like to add next?",
+      choices: ["Engineer", "Intern", "There are no more employees"],
+      name: 'employee',
+    },
+  ])
+.then((response) =>{
+  Manager();
+const manager = new Manager(response.office);
+createEmployee(response.employee)
+})
+};
 
-    function writeToFile(fileName, data) {
-        fs.writeFileSync(path.join(process.cwd(), fileName), data)
-      }
+const createEmployee = (employeeType) => {
+  if (employeeType === "There are no more employees") {
+    return console.log( "You are finished" );
+  } else if (employeeType === "Engineer"){
+    inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: "What is the manager's name?",
+        name: 'name',
+      },
+      {
+        type: 'input',
+        message: "What is their employee ID?",
+        name: 'id',
+      },
+      {
+        type: 'input',
+        message: "What is their email address?",
+        name: 'email',
+      },
+      {
+        type: 'input',
+        message: "What is their office number?",
+        name: 'office',
+      },
+      {
+        type: 'list',
+        message: "What type of employee would you like to add next?",
+        choices: ["Engineer", "Intern", "There are no more employees"],
+        name: 'employee',
+      },
+    ])
+  //   .then((response) =>{
+  //     Engineer();
+  //   const manager = new Manager(response.office);
+  //   createEmployee(response.employee)
+  // })
+}
+}
+
+
+// .then((response) => {
+//   console.log(response);
+//   writeToFile("index.html", generateHTML({ ...response }));
+// });
+
+// function writeToFile(fileName, data) {
+//   fs.writeFileSync(path.join(process.cwd(), fileName), data)
+// }
