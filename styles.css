@@ -1,0 +1,11 @@
+.team-cards{
+display: flex;
+justify-content: center !important; 
+}
+
+.card{
+border: solid 1px;
+border-radius: 10%;
+margin: 5px;
+box-shadow: 5px 10px;
+}
