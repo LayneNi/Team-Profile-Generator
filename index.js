@@ -46,6 +46,15 @@ createEmployee(response.employee)
 })
 };
 
+// switch (key) {
+//   case "Intern":
+    
+//     break;
+
+//   default:
+//     break;
+// }
+
 const createEmployee = (employeeType) => {
   if (employeeType === "There are no more employees") {
     console.log(myTeamArray);
@@ -135,5 +144,5 @@ managerQuestions()
 // });
 
 function writeToFile(fileName, data) {
-  fs.writeFileSync(fileName, data)
+  fs.writeFileSync(fileName, data, 'utf-8')
 }

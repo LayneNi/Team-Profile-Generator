@@ -1,5 +1,39 @@
-function generateHTML (data){
-    return`
+
+function generateCards(data) {
+
+const allCards = [];
+
+
+  function generateManagerCards(manager) {
+   
+
+    return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+    <div class="card-header text-white bg-primary">Header</div>
+    <div class="card-body text-black bg-light">
+      <h5 class="card-title">Manager</h5>
+      <p class="card-text">Some quick example text ${manager.getName()}to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>`
+  }
+
+  function generateInternCards(intern) {
+
+  }
+
+
+  function generateEngineerCards(engineer) {
+
+  }
+
+  allCards.push(data.filter(emp => emp.getRole() === "Manager").map(manager => generateManagerCards(manager)))
+
+
+  return allCards.join("")
+}
+
+
+function generateHTML(data) {
+  return `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,37 +59,9 @@ function generateHTML (data){
 
 <section class="team-cards d-flex justify-content-center row align-items-center" >
 
-<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
-  <div class="card-header text-white bg-primary">Header</div>
-  <div class="card-body text-black bg-light">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+${generateCards(data)}
 
-<div class="card m-5 justify-content-center" style="max-width: 18rem;">
-  <div class="card-header text-white bg-primary">Header</div>
-  <div class="card-body text-black bg-light">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
 
-<div class="card m-5 justify-content-center" style="max-width: 18rem;">
-  <div class="card-header text-white bg-primary">Header</div>
-  <div class="card-body text-black bg-light">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
-<div class="card m-5 justify-content-center" style="max-width: 18rem;">
-  <div class="card-header text-white bg-primary">Header</div>
-  <div class="card-body text-black bg-light">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
 
 
 <section>
