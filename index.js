@@ -8,25 +8,6 @@ const Intern = require('./lib/intern');
 
 const myTeamArray = [];
 
-// const menuQuestions = () => {
-//   inquirer
-//   .prompt([
-//     {
-//       type: 'confirm',
-//       message: "Would you like to add any employees to your team?",
-//       name: 'confirmation',
-//     },
-//   ])
-//   .then((response) =>{
-//     if (confirmation === false) {
-//       console.log(myTeamArray);
-//       return console.log( "You are finished" );
-//     } else {
-//       managerQuestions()
-//     }
-//   });
-// }
-
 const managerQuestions = () => {
   inquirer
   .prompt([
@@ -68,6 +49,7 @@ createEmployee(response.employee)
 const createEmployee = (employeeType) => {
   if (employeeType === "There are no more employees") {
     console.log(myTeamArray);
+    writeToFile("./index.html", generateHTML(myTeamArray));
     return console.log( "You are finished" );
   } else if (employeeType === "Engineer"){
     inquirer
@@ -149,9 +131,9 @@ managerQuestions()
 
 // .then((response) => {
 //   console.log(response);
-//   writeToFile("index.html", generateHTML({ ...response }));
+// writeToFile("index.html", generateHTML({ ...response }));
 // });
 
-// function writeToFile(fileName, data) {
-//   fs.writeFileSync(path.join(process.cwd(), fileName), data)
-// }
+function writeToFile(fileName, data) {
+  fs.writeFileSync(fileName, data)
+}
