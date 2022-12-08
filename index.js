@@ -2,9 +2,9 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML')
 const path = require("path");
-const Manager = require('./lib/manager');
-const Engineer = require('./lib/engineer');
-const Intern = require('./lib/intern');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
 const myTeamArray = [];
 
@@ -44,21 +44,11 @@ const managerQuestions = () => {
       myTeamArray.push(manager);
       createEmployee(response.employee)
     })
+
+    
 };
 
-// switch (employeeType) {
-//   case "Engineer":
 
-//     break;
-//   case "Intern":
-
-//     break;
-//   case "There are no more employees":
-
-//     break;
-//   default:
-//     break;
-// }
 
 const createEmployee = (employeeType) => {
   if (employeeType === "There are no more employees") {
@@ -149,5 +139,5 @@ managerQuestions()
 // });
 
 function writeToFile(fileName, data) {
-  fs.writeFileSync(fileName, data, 'utf-8')
+  fs.writeFileSync(fileName, data)
 }
