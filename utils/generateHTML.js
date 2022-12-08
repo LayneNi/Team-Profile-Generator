@@ -1,36 +1,48 @@
+console.log(data);
 
 function generateCards(data) {
 
-const allCards = [];
-
-
-  function generateManagerCards(manager) {
-   
-
-    return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
-    <div class="card-header text-white bg-primary">Header</div>
-    <div class="card-body text-black bg-light">
-      <h5 class="card-title">Manager</h5>
-      <p class="card-text">Some quick example text ${manager.getName()}to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>`
+  const allCards = [];
+  
+    function generateManagerCards(manager) {
+     
+  
+      return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+      <div class="card-header text-white bg-primary">Header</div>
+      <div class="card-body text-black bg-light">
+        <h5 class="card-title">Manager</h5>
+        <p class="card-text">Some quick example text ${manager.getName()}to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>`
+    }
+  
+    function generateEngineerCards(engineer) {
+      return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+      <div class="card-header text-white bg-primary">Header</div>
+      <div class="card-body text-black bg-light">
+        <h5 class="card-title">Intern</h5>
+        <p class="card-text">Some quick example text ${engineer.getName()}to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>`
+    }
+  
+  
+    function generateInternCards(intern) {
+      return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+      <div class="card-header text-white bg-primary">Header</div>
+      <div class="card-body text-black bg-light">
+        <h5 class="card-title">Engineer</h5>
+        <p class="card-text">Some quick example text ${intern.getName()}to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>`
+    }
+  
+    allCards.push(data.filter(emp => emp.getRole() === "Manager").map(manager => generateManagerCards(manager)));
+    allCards.push(data.filter(emp => emp.getRole() === "Engineer").map(engineer => generateEngineerCards(engineer)));
+    allCards.push(data.filter(emp => emp.getRole() === "Intern").map(intern => generateInternCards(intern)));
+    return allCards.join("")
   }
-
-  function generateInternCards(intern) {
-
-  }
-
-
-  function generateEngineerCards(engineer) {
-
-  }
-
-  allCards.push(data.filter(emp => emp.getRole() === "Manager").map(manager => generateManagerCards(manager)))
-
-
-  return allCards.join("")
-}
-
+  
 
 function generateHTML(data) {
   return `
@@ -62,6 +74,37 @@ function generateHTML(data) {
 ${generateCards(data)}
 
 
+<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+  <div class="card-header text-white bg-primary">Header</div>
+  <div class="card-body text-black bg-light">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card m-5 justify-content-center" style="max-width: 18rem;">
+  <div class="card-header text-white bg-primary">Header</div>
+  <div class="card-body text-black bg-light">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card m-5 justify-content-center" style="max-width: 18rem;">
+  <div class="card-header text-white bg-primary">Header</div>
+  <div class="card-body text-black bg-light">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card m-5 justify-content-center" style="max-width: 18rem;">
+  <div class="card-header text-white bg-primary">Header</div>
+  <div class="card-body text-black bg-light">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
 
 
 <section>
@@ -79,4 +122,4 @@ ${generateCards(data)}
     `
 }
 
-module.exports = generateHTML;
+module.exports = generateHTML();
