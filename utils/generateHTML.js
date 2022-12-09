@@ -1,49 +1,49 @@
 
 function generateCards(data) {
- console.log(data);
+  console.log(data);
   const allCards = [];
-  
-    function generateManagerCards(manager) {
-     
-  
-      return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+
+  function generateManagerCards(manager) {
+
+
+    return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
       <div class="card-header text-white bg-primary text-center"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i><h3>Manager </br>${manager.getName()}</h3></div>
       <div class="card-body text-black bg-light">
         <h4 class="card-text">ID: ${manager.getId()} </br>Email: ${manager.getEmail()} </br>Office Number: ${manager.getOffice()}</h4>
       </div>
     </div>`
-    }
-    function generateEngineerCards(engineer) {
-      return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+  }
+  function generateEngineerCards(engineer) {
+    return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
       <div class="card-header text-white bg-primary text-center"><i class="fa-sharp fa-solid fa-user-secret fa-2xl"></i><h3>Engineer </br>${engineer.getName()}</h3></div>
       <div class="card-body text-black bg-light">
         <h4 class="card-text">ID: ${engineer.getId()} </br>Email: ${engineer.getEmail()} </br>Github Username: ${engineer.getGithub()}</h4>
       </div>
     </div>`
-    }
-    function generateInternCards(intern) {
-      return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
+  }
+  function generateInternCards(intern) {
+    return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
       <div class="card-header text-white bg-primary text-center"><i class="fa-sharp fa-solid fa-pencil fa-2xl"></i><h3>Intern </br>${intern.getName()}</h3></div>
       <div class="card-body text-black bg-light">
         <h4 class="card-text">ID: ${intern.getId()} </br>Email: ${intern.getEmail()} </br>School: ${intern.getSchool()}</h4>
       </div>
     </div>`
-    }
+  }
   for (let i = 0; i < data.length; i++) {
-    const emp = data[i]; 
-    if (emp.getRole() === "manager"){
+    const emp = data[i];
+    if (emp.getRole() === "manager") {
       allCards.push(generateManagerCards(emp))
-    } if (emp.getRole() === "Engineer"){
+    } if (emp.getRole() === "Engineer") {
       allCards.push(generateEngineerCards(emp))
-    } if (emp.getRole() === "Intern"){
+    } if (emp.getRole() === "Intern") {
       allCards.push(generateInternCards(emp))
     }
   }
 
 
-    return allCards.join("")
-  }
-  
+  return allCards.join("")
+}
+
 
 function generateHTML(data) {
   return `

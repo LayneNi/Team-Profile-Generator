@@ -44,7 +44,7 @@ const managerQuestions = () => {
       createEmployee(response.employee)
     })
 
-    
+
 };
 
 
