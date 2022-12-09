@@ -1,7 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML')
-const path = require("path");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -54,7 +53,7 @@ const createEmployee = (employeeType) => {
   if (employeeType === "There are no more employees") {
     console.log(myTeamArray);
     writeToFile("./index.html", generateHTML(myTeamArray));
-    return console.log("You are finished");
+    return console.log("Success! You are finished!");
   } else if (employeeType === "Engineer") {
     inquirer
       .prompt([

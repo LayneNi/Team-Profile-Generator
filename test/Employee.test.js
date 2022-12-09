@@ -4,8 +4,7 @@ test("Can create a new employee", () => {
     expect(typeof(createdEmployee)).toBe("object")
 })
 test("Generates name", () => {
-    const name = "bob";
+    const name = "Bob";
     const generatedName = new Employee(name);
-    console.log(name);
     expect(generatedName.name).toBe(name)
 })

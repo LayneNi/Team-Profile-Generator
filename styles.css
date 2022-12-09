@@ -6,6 +6,17 @@ justify-content: center !important;
 .card{
 border: solid 1px;
 border-radius: 10%;
+padding: 10px;
 margin: 5px;
 box-shadow: 5px 10px;
+}
+.team-cards{
+    padding: 10px;
+}
+.fa-briefcase {
+    margin: 5px;
+}
+.card-header{
+    padding: 2px;
+    margin: 2px;
 }

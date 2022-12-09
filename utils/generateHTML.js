@@ -7,37 +7,30 @@ function generateCards(data) {
      
   
       return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
-      <div class="card-header text-white bg-primary">${manager.getName()} </br>Manager</div>
+      <div class="card-header text-white bg-primary text-center"><i class="fa-sharp fa-solid fa-briefcase fa-2xl"></i><h3>Manager </br>${manager.getName()}</h3></div>
       <div class="card-body text-black bg-light">
-        <h5 class="card-title">Manager</h5>
-        <p class="card-text">ID: ${manager.getId()} </br>Email: ${manager.getEmail()} </br>Office Number: ${manager.getOffice()}</p>
+        <h4 class="card-text">ID: ${manager.getId()} </br>Email: ${manager.getEmail()} </br>Office Number: ${manager.getOffice()}</h4>
       </div>
     </div>`
     }
-  
     function generateEngineerCards(engineer) {
       return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
-      <div class="card-header text-white bg-primary">${engineer.getName()} </br>Engineer</div>
+      <div class="card-header text-white bg-primary text-center"><i class="fa-sharp fa-solid fa-user-secret fa-2xl"></i><h3>Engineer </br>${engineer.getName()}</h3></div>
       <div class="card-body text-black bg-light">
-        <h5 class="card-title">Engineer</h5>
-        <p class="card-text">${engineer.getName()}</p>
+        <h4 class="card-text">ID: ${engineer.getId()} </br>Email: ${engineer.getEmail()} </br>Github Username: ${engineer.getGithub()}</h4>
       </div>
     </div>`
     }
-  
-  
     function generateInternCards(intern) {
       return `<div class="card border-0 border-primary rounded p-5 justify-content-center" style="max-width: 18rem;">
-      <div class="card-header text-white bg-primary">${intern.getName()} </br>Intern</div>
+      <div class="card-header text-white bg-primary text-center"><i class="fa-sharp fa-solid fa-pencil fa-2xl"></i><h3>Intern </br>${intern.getName()}</h3></div>
       <div class="card-body text-black bg-light">
-        <h5 class="card-title">Intern</h5>
-        <p class="card-text">${intern.getName()}</p>
+        <h4 class="card-text">ID: ${intern.getId()} </br>Email: ${intern.getEmail()} </br>School: ${intern.getSchool()}</h4>
       </div>
     </div>`
     }
   for (let i = 0; i < data.length; i++) {
     const emp = data[i]; 
-    console.log(emp.getRole());
     if (emp.getRole() === "manager"){
       allCards.push(generateManagerCards(emp))
     } if (emp.getRole() === "Engineer"){
@@ -46,7 +39,7 @@ function generateCards(data) {
       allCards.push(generateInternCards(emp))
     }
   }
-  console.log(allCards);
+
 
     return allCards.join("")
   }
@@ -57,16 +50,17 @@ function generateHTML(data) {
     <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Theme Simply Me</title>
+  <title>Team Profile Builder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/8638d0ac87.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./styles.css">
   <style>
   .bg-1 {
-    background-color: #1abc9c; /* Green */
+    background-color: #F04003; /* Orange */
     color: #ffffff;
   }
   </style>
