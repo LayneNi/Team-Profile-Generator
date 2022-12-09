@@ -6,7 +6,7 @@ This project was designed to dynamically create an HTML page for a team of emplo
 
 ## Installation
 
-run commands: "npm install Inquirer^@8" "npm install jest^@29"
+Run commands: "npm install Inquirer^@8" "npm install jest^@29"
 
 ## Usage
 
